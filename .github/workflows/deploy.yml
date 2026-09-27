@@ -40,6 +40,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Add branded social image
+        run: cp src/assets/images/logo/springfall.png dist/springfall-social.png
+
       - name: Create SEO-ready static route entry points
         run: node scripts/generate-static-seo.mjs
 
