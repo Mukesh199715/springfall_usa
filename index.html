@@ -42,6 +42,16 @@
       type="image/png"
       href="/src/assets/images/logo/springfall-fav_icon.png"
     />
+
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var redirectedPath = params.get('p');
+        if (redirectedPath) {
+          window.history.replaceState(null, '', redirectedPath);
+        }
+      })();
+    </script>
   </head>
 
   <body>
