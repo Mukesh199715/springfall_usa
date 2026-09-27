@@ -40,25 +40,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Create static route entry points
-        run: |
-          routes=(
-            about
-            f1-visa-info
-            interview-prep
-            visa-experiences
-            testimonials
-            resources
-            uniportal
-            blog
-            logo-competition
-            community
-          )
-
-          for route in "${routes[@]}"; do
-            mkdir -p "dist/$route"
-            cp dist/index.html "dist/$route/index.html"
-          done
+      - name: Create SEO-ready static route entry points
+        run: node scripts/generate-static-seo.mjs
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
